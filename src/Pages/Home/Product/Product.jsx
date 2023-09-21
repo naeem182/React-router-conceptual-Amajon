@@ -1,13 +1,25 @@
+import { useEffect, useState } from "react"
 import { useLoaderData, useParams } from "react-router-dom"
 
 
 const Product = () => {
 
-    const product = useLoaderData();
-    const { id, name, images, price, title, stock, thumbnail } = product;
+    // const product = useLoaderData();
+    // const { id, name, images, price, title, stock, thumbnail } = product;
 
 
-    console.log(title)
+
+    const data = useParams();
+    const [product, setProduct] = useState({});
+
+    useEffect(() => {
+        fetch(`https://dummyjson.com/products/${data.pid}`)
+            .then((res) => res.json())
+            .then((data) => setProduct(data));
+    }, [data.pid]);
+    // console.log(product);
+
+    const { id, thumbnail, price, stock, title } = product;
     return (
         <div className="flex justify-center align-middle items-center">
             <div className="w-full max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 p-3">

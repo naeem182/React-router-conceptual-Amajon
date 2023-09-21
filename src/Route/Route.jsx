@@ -24,7 +24,7 @@ const myCreatedRoute = createBrowserRouter([
             {
                 path: "/products/:pid",
                 //fetching loader
-                loader: ({ params }) => fetch(`https://dummyjson.com/products/${params.pid}`),
+                // loader: ({ params }) => fetch(`https://dummyjson.com/products/${params.pid}`),
                 element: <Product></Product>
             },
             {
