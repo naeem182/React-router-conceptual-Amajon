@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react"
 import { useLoaderData } from "react-router-dom"
+import ProductCard from "../ProductCart/ProductCard";
 
 
 const Products = () => {
@@ -16,8 +17,12 @@ const Products = () => {
     const { products } = useLoaderData()
     console.log(products);
     return (
-        <div>
-            <div>products router</div>
+        <div className="container mx-auto">
+            <div className="grid grid-cols-3 gap-3 ">
+                {
+                    products.map((product) => <ProductCard key={product.id} product={product}></ProductCard>)
+                }
+            </div>
         </div>
     )
 }
