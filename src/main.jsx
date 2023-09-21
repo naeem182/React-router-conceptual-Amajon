@@ -1,22 +1,38 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
 import './index.css'
-import { RouterProvider, createBrowserRouter } from 'react-router-dom'
+import { Outlet, RouterProvider, createBrowserRouter } from 'react-router-dom'
 
 const myCreatedRouter = createBrowserRouter([
+  // {
+  //   path: "/",
+  //   element: <div>This is my first router </div>
+  // },
+  // {
+  //   path: "/products",
+  //   element: <div>products router</div>
+  // },
+  // {
+  //   path: "/about",
+  //   element: <div>about router</div>
+  // },
+
   {
     path: "/",
-    element: <div>This is my first router </div>
+    element: <section><div>This is fix iteam </div>
+      <Outlet></Outlet>
+    </section>,
+    children: [
+      {
+        path: "/products",
+        element: <div>products router</div>
+      },
+      {
+        path: "/about",
+        element: <div>about router</div>
+      },
+    ]
   },
-  {
-    path: "/products",
-    element: <div>products router</div>
-  },
-  {
-    path: "/about",
-    element: <div>about router</div>
-  },
-
 ])
 
 
