@@ -1,10 +1,9 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
 import './index.css'
-import { Outlet, RouterProvider, createBrowserRouter } from 'react-router-dom'
-import MainLayout from './Layout/MainLayout'
-import Home from './Pages/Home/Home'
-import Products from './Products/Products'
+import myCreatedRoute from './Route/Route'
+import { RouterProvider } from 'react-router-dom'
+
 
 // const myCreatedRouter = createBrowserRouter([
 // {
@@ -38,31 +37,31 @@ import Products from './Products/Products'
 //   },
 // ])
 ///////
-const myCreatedRouter = createBrowserRouter([
-  {
-    path: "/",
-    element: <MainLayout></MainLayout>,
-    children: [
-      {
-        path: "/",
-        element: <Home></Home>
-      },
-      {
-        path: "/products",
-        element: <Products></Products>
-      },
-      {
-        path: "/about",
-        element: <div>about router</div>
-      },
-    ]
-  },
-])
+// const myCreatedRouter = createBrowserRouter([
+//   {
+//     path: "/",
+//     element: <MainLayout></MainLayout>,
+//     children: [
+//       {
+//         path: "/",
+//         element: <Home></Home>
+//       },
+//       {
+//         path: "/products",
+//         element: <Products></Products>
+//       },
+//       {
+//         path: "/about",
+//         element: <div>about router</div>
+//       },
+//     ]
+//   },
+// ])
 
 
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-    <RouterProvider router={myCreatedRouter}></RouterProvider>
+    <RouterProvider router={myCreatedRoute}></RouterProvider>
   </React.StrictMode>,
 )
