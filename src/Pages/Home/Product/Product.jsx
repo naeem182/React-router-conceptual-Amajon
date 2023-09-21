@@ -1,45 +1,15 @@
-// brand
-// : 
-// "Apple"
-// category
-// : 
-// "smartphones"
-// description
-// : 
-// "An apple mobile which is nothing like apple"
-// discountPercentage
-// : 
-// 12.96
-// id
-// : 
-// 1
-// images
-// : 
-// (5) ['https://i.dummyjson.com/data/products/1/1.jpg', 'https://i.dummyjson.com/data/products/1/2.jpg', 'https://i.dummyjson.com/data/products/1/3.jpg', 'https://i.dummyjson.com/data/products/1/4.jpg', 'https://i.dummyjson.com/data/products/1/thumbnail.jpg']
-// price
-// : 
-// 549
-// rating
-// : 
-// 4.69
-// stock
-// : 
-// 94
-// thumbnail
-// : 
-// "https://i.dummyjson.com/data/products/1/thumbnail.jpg"
-// title
-// : 
-// "iPhone 9"
+import { useLoaderData, useParams } from "react-router-dom"
 
-import { Link } from "react-router-dom";
 
-const ProductCard = ({ product }) => {
+const Product = () => {
+
+    const product = useLoaderData();
     const { id, name, images, price, title, stock, thumbnail } = product;
 
-    return (
-        <div >
 
+    console.log(title)
+    return (
+        <div className="flex justify-center align-middle items-center">
             <div className="w-full max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 p-3">
                 <a href="#">
                     <img className="p-8 rounded-t-lg h-56 w-full" src={thumbnail} alt="product image" />
@@ -72,15 +42,14 @@ const ProductCard = ({ product }) => {
 
                         <div>
                             <button className="btn btn-primary">
-                                <Link to={`/products/${id}`}>view datails</Link>
+                                Add to cart
                             </button>
                         </div>
                     </div>
                 </div>
             </div>
-
         </div>
     )
 }
 
-export default ProductCard
+export default Product
