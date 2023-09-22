@@ -1,41 +1,21 @@
-// brand
-// : 
-// "Apple"
-// category
-// : 
-// "smartphones"
-// description
-// : 
-// "An apple mobile which is nothing like apple"
-// discountPercentage
-// : 
-// 12.96
-// id
-// : 
-// 1
-// images
-// : 
-// (5) ['https://i.dummyjson.com/data/products/1/1.jpg', 'https://i.dummyjson.com/data/products/1/2.jpg', 'https://i.dummyjson.com/data/products/1/3.jpg', 'https://i.dummyjson.com/data/products/1/4.jpg', 'https://i.dummyjson.com/data/products/1/thumbnail.jpg']
-// price
-// : 
-// 549
-// rating
-// : 
-// 4.69
-// stock
-// : 
-// 94
-// thumbnail
-// : 
-// "https://i.dummyjson.com/data/products/1/thumbnail.jpg"
-// title
-// : 
-// "iPhone 9"
 
-import { Link } from "react-router-dom";
+
+import { Link, useNavigate } from "react-router-dom";
 
 const ProductCard = ({ product }) => {
     const { id, name, images, price, title, stock, thumbnail } = product;
+    const navigate = useNavigate();
+    const handleViewDetails = () => {
+
+        const user = true;
+        // if (user) {
+        //     navigate(`/products/${id}`)
+        // }
+        // else {
+        //     navigate('/')
+        // }
+        (user ? navigate(`/products/${id}`) : navigate('/'));
+    }
 
     return (
         <div >
@@ -71,8 +51,11 @@ const ProductCard = ({ product }) => {
 
 
                         <div>
-                            <button className="btn btn-primary">
+                            {/* <button className="btn btn-primary">
                                 <Link to={`/products/${id}`}>view datails</Link>
+                            </button> */}
+                            <button onClick={handleViewDetails} className="btn btn-primary">
+                                view datails
                             </button>
                         </div>
                     </div>

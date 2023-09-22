@@ -13,7 +13,7 @@ const DashboardLayout = () => {
                 </NavLink></li>
                 <li>  <NavLink to="/dashboard/profile">
                     {({ isActive, isPending }) => (
-                        <span className={isActive ? " bg-red-600" : ""}>Profile</span>
+                        <span className={isActive ? " bg-red-600 active-link" : ""}>Profile</span>
                     )}
                 </NavLink> </li>
                 <li>   <NavLink to="/dashboard/profileedit">
