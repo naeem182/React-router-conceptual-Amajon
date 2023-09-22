@@ -1,8 +1,11 @@
 import React from 'react'
-import { Outlet } from 'react-router-dom'
+import { NavLink, Outlet, useNavigation } from 'react-router-dom'
 import Footer from '../Pages/Home/Footer/Footer'
+import Spinner from '../Spinner/Spinner'
 
 const MainLayout = () => {
+    const navigation = useNavigation()
+    let isloading = navigation.state === 'loading'
     return (
         <div>
             <div className='flex justify-between  px-16 py-8 shadow-lg'>
@@ -10,17 +13,18 @@ const MainLayout = () => {
                 <nav >
                     <ul className='flex gap-3 '>
 
-                        <li> <a href="/"> Home</a></li>
-                        <li> <a href="/products">Products</a></li>
-                        <li> <a href="/about">About</a></li>
+                        <li> <NavLink to="/"> Home</NavLink></li>
+                        <li> <NavLink to="/products">Products</NavLink></li>
+                        <li> <NavLink to="/dashboard">Dashboard</NavLink></li>
                         <li> <a href="/not path"> abc</a></li>
 
                     </ul>
                 </nav>
             </div>
-            <div className='min-h-screen' style={{ minHeight: '200px' }}>
+
+            {isloading ? <Spinner></Spinner> : <div className='min-h-screen' style={{ minHeight: '200px' }}>
                 <Outlet></Outlet>
-            </div>
+            </div>}
 
             <footer>
                 <Footer></Footer>

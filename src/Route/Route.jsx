@@ -4,6 +4,7 @@ import MainLayout from "../Layout/MainLayout"
 import Home from "../Pages/Home/Home"
 import Products from "../Products/Products"
 import Product from '../Pages/Home/Product/Product'
+import DashboardLayout from '../Dashboard/DashboardLayout'
 
 
 const myCreatedRoute = createBrowserRouter([
@@ -30,6 +31,10 @@ const myCreatedRoute = createBrowserRouter([
             {
                 path: "/about",
                 element: <div>about router</div>
+            },
+            {
+                path: "/dashboard",
+                element: <DashboardLayout></DashboardLayout>
             },
         ]
     },
