@@ -13,9 +13,21 @@ const MainLayout = () => {
                 <nav >
                     <ul className='flex gap-3 '>
 
-                        <li> <NavLink to="/"> Home</NavLink></li>
-                        <li> <NavLink to="/products">Products</NavLink></li>
-                        <li> <NavLink to="/dashboard">Dashboard</NavLink></li>
+                        <li> <NavLink to="/"
+                            className={({ isActive, isPending }) =>
+                                isPending ? "pending" : isActive ? " bg-pink-500" : ""
+                            }
+                        > Home</NavLink></li>
+                        <li> <NavLink to="/products"
+                            className={({ isActive, isPending }) =>
+                                isPending ? "pending" : isActive ? " bg-pink-500" : ""
+                            }
+                        >Products</NavLink></li>
+                        <li> <NavLink to="/dashboard"
+                            className={({ isActive, isPending }) =>
+                                isPending ? "pending" : isActive ? " bg-pink-500" : ""
+                            }
+                        >Dashboard</NavLink></li>
                         <li> <a href="/not path"> abc</a></li>
 
                     </ul>
